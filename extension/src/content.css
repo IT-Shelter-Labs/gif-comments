@@ -1,0 +1,132 @@
+/* The GIF button lives inside YouTube's comment box, so it is styled from the
+   page to match YouTube's round icon buttons. The picker has its own shadow root. */
+.gcfy-btn {
+  flex: none;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #0f0f0f;
+  cursor: pointer;
+}
+
+html[dark] .gcfy-btn {
+  color: #f1f1f1;
+}
+
+/* A copy of icons/icon.svg, used as a mask so it takes the button's text
+   colour. It is inlined because the extension's own URL differs per browser. */
+.gcfy-btn::before {
+  --gcfy-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='5.5' width='20' height='13' rx='3.5' stroke-width='1.5'/%3E%3Cpath stroke-width='1.25' d='M9.85 10.35C9.45 9.75 8.9 9.4 8.25 9.4c-1.1 0-1.8 1.05-1.8 2.6s.7 2.6 1.8 2.6 1.8-.75 1.8-1.9v-.4H8.5M12.35 9.4v5.2M14.65 14.6V9.4h2.9M14.65 12.15H17'/%3E%3C/svg%3E");
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask: var(--gcfy-icon) center / contain no-repeat;
+  mask: var(--gcfy-icon) center / contain no-repeat;
+}
+
+.gcfy-btn:hover,
+.gcfy-btn[aria-expanded="true"] {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+html[dark] .gcfy-btn:hover,
+html[dark] .gcfy-btn[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.gcfy-btn:focus-visible {
+  outline: 2px solid #065fd4;
+  outline-offset: 2px;
+}
+
+html[dark] .gcfy-btn:focus-visible {
+  outline-color: #3ea6ff;
+}
+
+/* The GIF attached to a comment box, shown between the text and the buttons
+   until the comment is posted. */
+.gcfy-attachment {
+  margin: 8px 0 0;
+  font: 12px/1.4 Roboto, Arial, sans-serif;
+  color: #606060;
+}
+
+html[dark] .gcfy-attachment {
+  color: #aaa;
+}
+
+.gcfy-attachment-gif {
+  min-width: 48px;
+  min-height: 48px;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gcfy-attachment-gif img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 200px;
+  max-height: 120px;
+}
+
+.gcfy-attachment[data-busy] .gcfy-attachment-gif {
+  opacity: 0.6;
+}
+
+.gcfy-attachment-remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font: 16px/1 Arial, sans-serif;
+  cursor: pointer;
+}
+
+.gcfy-attachment[data-busy] .gcfy-attachment-remove {
+  display: none;
+}
+
+.gcfy-attachment-remove:focus-visible {
+  outline: 2px solid #3ea6ff;
+  outline-offset: 1px;
+}
+
+.gcfy-attachment-status:empty {
+  display: none;
+}
+
+.gcfy-attachment-status {
+  margin-top: 4px;
+}
+
+.gcfy-attachment-status[data-kind="error"] {
+  color: #c00;
+}
+
+html[dark] .gcfy-attachment-status[data-kind="error"] {
+  color: #ff7b7b;
+}
+
+.gcfy-folded {display:none!important;}
+.gcfy-fold-control {border:0;border-radius:14px;padding:6px 10px;cursor:pointer;font:12px/1.4 Arial,sans-serif;background:#eee;color:#333;}
+html[dark] .gcfy-fold-control {background:#333;color:#eee;}
+.gcfy-attachment-status button {margin-top:6px;border:1px solid currentColor;border-radius:10px;padding:6px 10px;background:transparent;color:inherit;cursor:pointer;}

@@ -1,0 +1,14 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GIF Comments</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+  <header><img src="../icons/icon-48.png" alt=""><div><h1>GIF Comments</h1><p id="subtitle"></p></div></header>
+  <main>
+    <label class="setting"><input id="hide" type="checkbox"><span id="hideLabel"></span></label>
+    <p id="local"></p>
+    <section><h2 id="libraryTitle"></h2><p id="counts"></p><div class="actions"><button id="export" type="button"></button><button id="import" type="button"></button><button id="clear" type="button"></button></div><input id="file" type="file" accept=".json,application/json" hidden></section>
+    <section><h2 id="draftTitle"></h2><p id="draftHint"></p><div id="drafts"></div><button id="clearDrafts" type="button"></button></section>
+    <p id="status" role="status" aria-live="polite"></p>
+    <p id="help"></p>
+  </main>
+  <script src="shared.js"></script><script src="popup.js"></script>
+</body></html>
